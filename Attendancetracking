@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Attendancetracking {
+    public static void main(String[] args) {
+        HashMap<String, Integer> attendance = new HashMap<>();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n1. Mark Attendance\n2. View Attendance\n3. Exit");
+            int ch = sc.nextInt();
+
+            switch (ch) {
+                case 1:
+                    System.out.print("Enter student name: ");
+                    String name = sc.next();
+                    attendance.put(name, attendance.getOrDefault(name, 0) + 1);
+                    break;
+
+                case 2:
+                    for (String key : attendance.keySet()) {
+                        System.out.println(key + " attended " + attendance.get(key) + " days");
+                    }
+                    break;
+
+                case 3:
+                    System.exit(0);
+            }
+        }
+    }
+}
